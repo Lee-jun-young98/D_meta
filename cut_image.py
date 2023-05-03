@@ -36,7 +36,7 @@ class cut_image_app:
 
         img_resize = resize(img, n, m)
         img_list = cut_image(img_resize, n, m)
-        random_img = random_img_list(img_list)
+        img_list = random_img_list(img_list)
 
         if not os.path.exists("./result"):
             os.mkdir("./result")
@@ -50,7 +50,7 @@ class cut_image_app:
                 os.remove("./result/" + i)
 
         for i in range(0, n*m):
-            cv2.imwrite(save_dir + out_file + f"{i+1}.jpg", cv2.cvtColor(random_img[i], cv2.COLOR_BGR2RGB))
+            cv2.imwrite(save_dir + out_file + f"{i+1}.jpg", cv2.cvtColor(img_list[i], cv2.COLOR_BGR2RGB))
             print(save_dir + out_file + f"{i+1}.jpg가 저장되었습니다.")
     
 

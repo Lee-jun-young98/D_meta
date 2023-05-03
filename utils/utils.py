@@ -1,8 +1,6 @@
 import cv2
-import os
 import random
-import matplotlib as plt
-import sys
+import matplotlib.pyplot as plt
 
 
 def resize(img, n, m):
@@ -18,12 +16,37 @@ def resize(img, n, m):
     return img
 
 def cut_image(img, n, m):
+    h, w = img.shape[0], img.shape[1]
     img_list = []
-    for i in range(n):
-        for j in range(m):
-            img_list.append(img[(img.shape[0]//n)*i:(img.shape[0]//n)*(i+1), (img.shape[1]//m)*j:(img.shape[1]//m)*(j+1)])
+    for i in range(n): # x
+        for j in range(m): # y 
+                if i == 0 and j == 0: # 제일 오른쪽 위일때 
+                    # img_h = img[(h//m)*i:(h//m)*(i+1)+(h//m)//2]
+                    # img_w = img[(w//n)*i:(w//n)*(i+1)+(w//n)//2]
+                    img_list.append(img[(h//m)*j:(h//m)*(j+1)+(h//m)//2, (w//n)*i:(w//n)*(i+1)+(w//n)//2])
+                
+                elif i == 0 and j+1 == m: # 제일 왼쪽 아래일 때
+                    # img_h = img[(h//m)*i:(h//m)*(i+1)+(h//m)//2]
+                    # img_w = img[(w//n)*i-(w//n)//2:(w//n)*(i+1)]
+                    img_list.append(img[(h//m)*j:(h//m)*(j+1)+(h//m)//2, (w//n)*i:(w//n)*(i+1)+(w//n)//2])
+
+                elif  i+1 == n and j == 0: # 제일 오른쪽 위에 있을 때
+                    # img_h = img[(h//m)*i-(h//m)//2:(h//m)*(i+1)]
+                    # img_w = img[(w//n)*i:(w//n)*(i+1)+(w//n)//2]
+                    img_list.append(img[(h//m)*j:(h//m)*(j+1)+(h//m)//2, (w//n)*i-(w//n)//2:(w//n)*(i+1)])
+
+                elif i+1 == n and j+1 == m: # 제일 오른쪽 아래에 있을 때
+                    # img_h = img[(h//m)*i-(h//m)//2:(h//m)*(i+1)]
+                    # img_w = img[(w//n)*i-(w//n)//2:(w//n)*(i+1)]
+                    img_list.append(img[(h//m)*j-(h//m)//2:(h//m)*(j+1), (w//n)*i-(w//n)//2:(w//n)*(i+1)])
+
+                else: # 그 외 
+                    # img_h = img[(h//m)*i-(h//m)//4:(h//m)*(i+1)+(h//m)//4]
+                    # img_w = img[(w//n)*i-(w//n)//4:(w//n)*(i+1)+(h//m)//4]
+                    img_list.append(img[(h//m)*j-(h//m)//4:(h//m)*(j+1)+(h//m)//4, (w//n)*i-(w//n)//4:(w//n)*(i+1)+(h//m)//4])
     
     return img_list
+
 
 
 def mirroring(img):
