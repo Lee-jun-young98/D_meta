@@ -10,7 +10,7 @@ pip install -r requirements.txt
 ## 실행 방법
 ### cut_image.py
 ```commandline
-python cut_image.py --image_file_name image_dir --column_num 2 --row_num 2 --prefix_output_filename output_filename
+python cut_image.py --image_file_name image_dir --column_num n --row_num m --prefix_output_filename output_filename
 ex) python cut_image.py --image_file_name "./data/house.jpeg" --column_num 2 --row_num 2 --prefix_output_filename "test"
 ```
 
