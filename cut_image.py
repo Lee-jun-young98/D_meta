@@ -29,19 +29,19 @@ class cut_image_app:
         self.cli_args = parser.parse_args()
     
     def main(self):
-        data = self.cli_args.image_file_name
-        img = cv2.imread(data)
-        img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
-        n, m = self.cli_args.column_num, self.cli_args.row_num
+        data = self.cli_args.image_file_name # 데이터 불러오기
+        img = cv2.imread(data) # 데이터 읽어오기
+        img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB) # RGB형태로 변환
+        n, m = self.cli_args.column_num, self.cli_args.row_num # n(column), m(row) 값 받기
 
-        img_resize = resize(img, n, m)
-        img_list = cut_image(img_resize, n, m)
-        img_list = random_img_list(img_list)
+        img_resize = resize(img, n, m) # 이미지 리사이즈 하기
+        img_list = cut_image(img_resize, n, m) # 이미지 자르기
+        img_list = random_img_list(img_list) # 이미지 랜덤으로 만들기 이 부분 주석 처리 시 원본 이미지로 생성
 
         save_dir = "./result/"
         out_file = self.cli_args.prefix_output_filename
 
-        image_save(img_list, save_dir, out_file, n, m)
+        image_save(img_list, save_dir, out_file, n, m) # 결과 파일 저장
     
 
 if __name__ == '__main__':
