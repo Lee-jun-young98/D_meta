@@ -307,7 +307,7 @@ def total_merge(imgs_list, remain=None, use_remain=False):
     
         
 
-        if good_match_len >= 5: # 매칭된 특징이 10개 이상이면 각도 탐색 아닐 시 남은 이미지에 리스트 추가
+        if good_match_len >= 10: # 매칭된 특징이 10개 이상이면 각도 탐색 아닐 시 남은 이미지에 리스트 추가
             imgs1, imgs2, no_degree = collect(imgs1, imgs2, angle)
             if no_degree == False: # 각도 탐색이 이루어지지 않는 경우 후순위로 미룸
                 remain.append(imgs2)
