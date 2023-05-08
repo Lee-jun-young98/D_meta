@@ -48,9 +48,9 @@ class merge_image_app:
                 print(f"{count}번째 반복 시작")
                 print("===================================================")         
                 remain.insert(0, imgs1)
-                imgs1, remain = total_merge(remain)
+                imgs1, remain = total_merge(remain, use_remain=True)
                 print(f"남은 이미지의 개수는 {len(remain)}")
-                if count == n*m:
+                if count == n*m*len(imgs_list):
                     break
             
         image_save(imgs1, save_dir, output_name)
