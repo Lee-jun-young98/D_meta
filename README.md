@@ -31,5 +31,5 @@ ex) python merge_image.py --input_filename_prefix "./result/" --column_num 2 --c
 ├── cut_image.py
 ├── merge_image.py
 ├── utils
-│   ├── util.py
+│   └── util.py
 ``` 
