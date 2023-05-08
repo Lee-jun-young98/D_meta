@@ -11,7 +11,7 @@ class cut_image_app:
         parser = argparse.ArgumentParser()
         parser.add_argument('--image_file_name',
                             help="input image_file_name",
-                            default="./data/sample.jpg",
+                            default="./data/sample2.jpg",
                             type=str)
         parser.add_argument('--column_num',
                             help="input column count",

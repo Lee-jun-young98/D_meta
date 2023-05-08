@@ -50,7 +50,7 @@ class merge_image_app:
                 remain.insert(0, imgs1)
                 imgs1, remain = total_merge(remain, use_remain=True)
                 print(f"남은 이미지의 개수는 {len(remain)}")
-                if count == n*m*len(imgs_list):
+                if count == n*m:
                     break
             
         image_save(imgs1, save_dir, output_name)
