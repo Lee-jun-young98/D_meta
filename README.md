@@ -20,3 +20,17 @@ python merge_image.py --input_filename_prefix data_dir --column_num n --column_n
 ex) python merge_image.py --input_filename_prefix "./result/" --column_num 2 --column_num 2 --output_filename "final_result"
 ``` 
 
+## 폴더 리스트
+```bash
+├── data
+│   ├── house.jpeg
+│   ├── sample.jpg
+│   └── sample2.jpeg
+├── result - cut_image.py 실행 시 생성 cut_image 결과
+├── final - merge_image.py 실행 시 생성 최종 결과
+├── cut_image.py
+├── merge_image.py
+├── utils
+│   ├── util.py
+└── run.sh
+``` 
