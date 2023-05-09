@@ -306,7 +306,7 @@ def total_merge(imgs_list, remain=None, use_remain=False):
         print(f"imgs1, imgs2의 angle은 {angle}이다.")
     
 
-        if good_match_len >= 10: # 매칭된 특징이 10개 이상이면 각도 탐색 아닐 시 남은 이미지에 리스트 추가
+        if good_match_len >= 5: # 매칭된 특징이 5개 이상이면 각도 탐색 아닐 시 남은 이미지에 리스트 추가
             imgs1, imgs2, no_degree = collect(imgs1, imgs2, angle)
             if no_degree == False: # 각도 탐색이 이루어지지 않는 경우 후순위로 미룸
                 remain.append(imgs2)
@@ -325,7 +325,7 @@ def total_merge(imgs_list, remain=None, use_remain=False):
                     remain.append(imgs2)
         else:
             remain.append(imgs2)
-            print(f"{i+1}번째 이미지 리스트에 추가")
+            print(f"특징점이 {len(good_match_len)}개 {i+1}번째 이미지 리스트에 추가")
             print("---------------------------------------------------")
             
     return imgs1, remain
