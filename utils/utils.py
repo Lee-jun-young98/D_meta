@@ -325,7 +325,7 @@ def total_merge(imgs_list, remain=None, use_remain=False):
                     remain.append(imgs2)
         else:
             remain.append(imgs2)
-            print(f"특징점이 {len(good_match_len)}개 {i+1}번째 이미지 리스트에 추가")
+            print(f"특징점이 {good_match_len}개 {i+1}번째 이미지 리스트에 추가")
             print("---------------------------------------------------")
             
     return imgs1, remain
